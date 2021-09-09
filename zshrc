@@ -168,7 +168,7 @@ alias z='LC_ALL=C _z 2>&1'
 # Functions
 
 vd() {
-    neovide --multiGrid $1 &>/dev/null &
+    neovide $1 &>/dev/null &
 }
 
 n() {
@@ -196,5 +196,6 @@ zplugin light zsh-users/zsh-autosuggestions
 
 # Personal export variables
 export I3CONF="$HOME/.config/i3/config"
-export NVIMCONF="$HOME/.config/nvim/init.vim"
+export NVIMPATH="$HOME/.config/nvim"
 export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
+export DEVICES="/run/media/atikin/"
