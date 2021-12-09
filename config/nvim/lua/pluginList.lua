@@ -15,18 +15,28 @@ end
 
 require("packer").startup(function(use)
   use("onsails/lspkind-nvim")
-  use({ "kyazdani42/nvim-tree.lua", opt = true, cmd = { "NvimTreeToggle" } })
+
+  use({
+    "kyazdani42/nvim-tree.lua",
+    requires = "kyazdani42/nvim-web-devicons",
+    config = function()
+      require'nvim-tree'.setup({})
+    end,
+  })
 
   use("glepnir/lspsaga.nvim")
   -- use("kabouzeid/nvim-lspinstall") → Broken after new lsp-config installation
   use("williamboman/nvim-lsp-installer")
+
   use({
     "nvim-treesitter/nvim-treesitter",
     event = "BufRead",
     run = ":TSUpdate",
   })
+
   use("neovim/nvim-lspconfig")
   use("folke/tokyonight.nvim")
+
   use({
     "hoob3rt/lualine.nvim",
     event = "BufWinEnter",
@@ -55,6 +65,7 @@ require("packer").startup(function(use)
   })
 
   use("jiangmiao/auto-pairs")
+
   use({
     "folke/trouble.nvim",
     cmd = "TroubleToggle",
@@ -94,12 +105,15 @@ require("packer").startup(function(use)
   use("tpope/vim-commentary")
   use("kdheepak/lazygit.nvim")
   use("yuttie/comfortable-motion.vim")
+
   use({
     "folke/twilight.nvim",
     opt = true,
   })
+
   use("gelguy/wilder.nvim")
   use({ "maxmellon/vim-jsx-pretty", opt = true })
+
   use({
     "folke/zen-mode.nvim",
     opt = true,
@@ -128,7 +142,10 @@ require("packer").startup(function(use)
   use({ 'othree/xml.vim' })
 
   -- Vim-JavaScript better highlighting and indenting
-  use({ 'pangloss/vim-javascript' })
+  -- use({ 'pangloss/vim-javascript' })
+
+  -- Vim-Polyglot for better language-specific code processing
+  use({ 'sheerun/vim-polyglot' })
 
   -- Coq completion
   use("ms-jpq/coq_nvim")

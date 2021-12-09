@@ -126,14 +126,14 @@ nnoremap <leader>to :lua require('lspsaga.floaterm').open_float_terminal()<CR>
 nnoremap <leader>tc :lua require('lspsaga.floaterm').close_float_terminal()<CR>
 
 " Set recommended to false
-"let g:coq_settings = { "keymap.recommended": v:false }
+" let g:coq_settings = { "keymap.recommended": v:false }
 
 " Keybindings
 ino <silent><expr> <Esc>   pumvisible() ? "\<C-e><Esc>" : "\<Esc>"
 ino <silent><expr> <C-c>   pumvisible() ? "\<C-e><C-c>" : "\<C-c>"
 ino <silent><expr> <BS>    pumvisible() ? "\<C-e><BS>"  : "\<BS>"
-" ino <silent><expr> <CR>    pumvisible() ? (complete_info().selected == -1 ? "\<C-e><CR>" : "\<C-y>") : "\<CR>"
-ino <silent><expr> <CR>    pumvisible() ? "\<C-y>" : "\<CR>"
+ino <silent><expr> <CR>    pumvisible() ? (complete_info().selected == -1 ? "\<C-e><CR>" : "\<C-y>") : "\<CR>"
+" ino <silent><expr> <CR>    pumvisible() ? "\<C-y>" : "\<CR>"
 ino <silent><expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 ino <silent><expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<BS>"
 
@@ -148,7 +148,7 @@ ino <silent><expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<BS>"
 " inoremap <silent><expr> <C-d> compe#scroll({ 'delta': -4 })
 
 " Lspsaga
-" Symobols Finder
+" Symbols Finder
 nnoremap <silent> gh <cmd>lua require'lspsaga.provider'.lsp_finder()<CR>
 " Show code actions
 nnoremap <silent><leader>ca <cmd>lua require('lspsaga.codeaction').code_action()<CR>
@@ -197,7 +197,7 @@ function! ToggleNvimTree()
 endfunction
 
 " Call nvim-tree lazy load function
-nnoremap <silent> <leader>nn :call ToggleNvimTree()<CR>
+nnoremap <silent> <leader>n :call ToggleNvimTree()<CR>
 
 "Open lazgit
 nnoremap <silent> <leader>lg :LazyGit<CR>
