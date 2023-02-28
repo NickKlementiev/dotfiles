@@ -194,6 +194,7 @@ function! ToggleNvimTree()
   endif
 
   NvimTreeToggle
+  NvimTreeRefresh
 endfunction
 
 " Call nvim-tree lazy load function

@@ -4,12 +4,13 @@ local lsp = require("lspconfig")
 local configs = require("lspconfig.configs")
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local lsp_installer = require("nvim-lsp-installer")
 
 local function common_on_attach(client, bufnr)
-  client.resolved_capabilities.document_formatting = false
+  client.server_capabilities.document_formatting = false
 
   local function buf_set_option(...)
     vim.api.nvim_buf_set_option(bufnr, ...)
@@ -24,14 +25,11 @@ lsp_installer.on_server_ready(function(server)
   local opts = {}
 
   opts.capabilities = capabilities
+  opts.on_attach = configs.on_attach or common_on_attach
+  opts.settings = configs.settings or {}
 
-  if server.name == 'emmet_ls' then
-      opts.root_dir = function(fname)
-          return vim.fn.getcwd()
-      end
-  end
-
-  server:setup(opts)
+  -- server:setup(opts)
+  server:setup(coq.lsp_ensure_capabilities(opts))
 end)
 
 vim.fn.sign_define(

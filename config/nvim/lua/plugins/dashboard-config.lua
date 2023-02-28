@@ -1,52 +1,91 @@
+local home = os.getenv('HOME')
 local vim = vim
-local g = vim.g
+-- local g = vim.g
+local dashboard = require("dashboard")
 
-g.dashboard_default_executive = "telescope"
+local dashboard_default_executive = "telescope"
 
 vim.cmd("packadd dashboard-nvim")
 
-local custom_header = {
-  "",
-  "",
-  "",
-  "            _/_",
-  "          -'a\\",
-  "            ||",
-  "            |J",
-  "            2_\\",
-  "           /:::\\",
-  "          |;ooo;|",
-  "          /Oo@ o\\",
-  "         '/o oOo\\`",
-  "         /@ O o @\\",
-  "        '/.o,()o,\\`",
-  "        /().O O  o\\",
-  "       / @ , @. () \\",
-  "      /,o O' o O o, \\",
-  "   _-'. 'o _o _O_o-o.`-_",
-  '   `"""---......---"""`',
-  "    K Y O T O    N V I M     ",
+-- local custom_header = {
+--   "",
+--   "",
+--   "",
+--   "            _/_",
+--   "          -'a\\",
+--   "            ||",
+--   "            |J",
+--   "            2_\\",
+--   "           /:::\\",
+--   "          |;ooo;|",
+--   "          /Oo@ o\\",
+--   "         '/o oOo\\`",
+--   "         /@ O o @\\",
+--   "        '/.o,()o,\\`",
+--   "        /().O O  o\\",
+--   "       / @ , @. () \\",
+--   "      /,o O' o O o, \\",
+--   "   _-'. 'o _o _O_o-o.`-_",
+--   '   `"""---......---"""`',
+--   "    K Y O T O    N V I M     ",
+-- }
+
+local nvim_header = {
+        '                                                       ',
+        '                                                       ',
+        '                                                       ',
+        ' ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗',
+        ' ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║',
+        ' ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║',
+        ' ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║',
+        ' ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║',
+        ' ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝',
+        '                                                       ',
+        '                                                       ',
+        '                                                       ',
+        '                                                       ',
 }
 
-g.dashboard_custom_header = custom_header
+-- g.dashboard_custom_header = custom_header
+-- g.dashboard_custom_header = nvim_header
 
-g.dashboard_custom_section = {
-  a = {
-    description = { "  Find File                  SPC f f" },
-    command = "Telescope find_files",
+local dashboard_custom_section = {
+  {
+    icon = '  ',
+    desc = "Find File                  ",
+    shortcut = 'SPC f f',
+    action = "Telescope find_files",
   },
-  b = {
-    description = { "  Recents                    SPC f o" },
-    command = "Telescope oldfiles",
+  {
+    icon = '  ',
+    desc = "Recents                    ",
+    shortcut = 'SPC f o',
+    action = "Telescope oldfiles",
   },
-  e = {
-    description = { "洛 New Buffer                 SPC g g" },
-    command = "enew",
+  {
+    icon = '洛 ',
+    desc = "New Buffer                 ",
+    shortcut = 'SPC g g',
+    action = "enew",
   },
-  f = {
-    description = { "  Edit Configuration         SPC d c" },
-    command = "e ~/.config/nvim/lua/kyotorc.lua",
+  {
+    icon = '  ',
+    desc = "Edit Configuration         ",
+    shortcut = 'SPC d c',
+    action = "e ~/.config/nvim/lua/kyotorc.lua",
   },
 }
 
-g.dashboard_custom_footer = { "KYOTO.NVIM" }
+local dashboard_custom_footer = { "KYOTO.NVIM" }
+
+-- dashboard.custom_header = nvim_header
+-- dashboard.custom_center = dashboard_custom_section
+-- dashboard.custom_footer = dashboard_custom_footer
+dashboard.setup {
+  theme = 'doom',
+  config = {
+    header = nvim_header,
+    center = dashboard_custom_section,
+    footer = dashboard_custom_footer
+  }
+}

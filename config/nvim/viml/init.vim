@@ -27,8 +27,9 @@ let g:notes_suffix = '.txt'
 let g:notes_title_sync = 'no'
 
 " Neovide specific configurations
-let g:neovide_transparency = 0.95
+let g:neovide_transparency = 0.85
 let g:neovide_cursor_antialiasing = v:true
+
 let g:notes_unicode_enabled = 1
 let g:notes_smart_quotes = 1
 
@@ -64,6 +65,7 @@ else
   set signcolumn=no
 endif
 
+let g:coq_settings = { "keymap.recommended": v:true }
 
 "" Use tab for trigger completion with characters ahead and navigate.
 "" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
@@ -290,14 +292,20 @@ nnoremap <silent> <F3> :BufferLineCyclePrev<CR>
 nnoremap <silent> <leader><F3> :BufferLineMovePrev<CR>
 nnoremap <silent> <F4> :BufferLineCycleNext<CR>
 nnoremap <silent> <leader><F4> :BufferLineMoveNext<CR>
+nnoremap <silent> <F5> :BufferLinePick<CR>
 nnoremap <silent> <F8> :TlistToggle<CR>
 nnoremap <silent> <F7> :ColorToggle<CR>
 nnoremap <silent> <F6> :Prettier<CR>
 nnoremap <silent> <esc> :noh<return><esc>
 
+
+
 " Colon or semicolon at the end of the line when inserting [$+;] or [$+,]
-inoremap <silent> <M-z> <esc>m`A;<esc>``a
-inoremap <silent> <M-x> <esc>m`A,<esc>``a
+" inoremap <silent> <M-z> <esc>m`A;<esc>``a
+" inoremap <silent> <M-x> <esc>m`A,<esc>``a
+
+" coq-nvim substitution of target in insert mode
+inoremap <silent> <C-s> <esc><C-h>
 
 " Prevent clipboard clearing on exit
 autocmd VimLeave * call system("xsel -ib", getreg('+'))

@@ -2,6 +2,7 @@
 nnoremap <silent> <F2> :NvimTreeToggle<CR>
 nnoremap <silent> <F3> :tabp<CR>
 nnoremap <silent> <F4> :tabn<CR>
+inoremap <silent> <c-h> <Esc><c-h>
 
 " Extra configuration for nvim-jdtls
 "if has('nvim-0.5')

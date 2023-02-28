@@ -14,7 +14,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 require("packer").startup(function(use)
-  use("onsails/lspkind-nvim")
+  -- use("onsails/lspkind-nvim")
 
   use({
     "kyazdani42/nvim-tree.lua",
@@ -75,19 +75,21 @@ require("packer").startup(function(use)
     requires = "kyazdani42/nvim-web-devicons",
   })
 
-  use({
-    "glepnir/dashboard-nvim",
-    opt = true,
-    cmd = {
-      "Dashboard",
-      "DashboardChangeColorscheme",
-      "DashboardFindFile",
-      "DashboardFindHistory",
-      "DashboardFindWord",
-      "DashboardJumpMarks",
-      "DashboardNewfile",
-    },
-  })
+  -- use({
+  --   "glepnir/dashboard-nvim",
+  --   opt = true,
+  --   cmd = {
+  --     "Dashboard",
+  --     "DashboardChangeColorscheme",
+  --     "DashboardFindFile",
+  --     "DashboardFindHistory",
+  --     "DashboardFindWord",
+  --     "DashboardJumpMarks",
+  --     "DashboardNewfile",
+  --   },
+  -- })
+
+  use({"glepnir/dashboard-nvim"})
 
   use({
     "lewis6991/gitsigns.nvim",
@@ -144,14 +146,16 @@ require("packer").startup(function(use)
   -- Vim-JavaScript better highlighting and indenting
   -- use({ 'pangloss/vim-javascript' })
 
-  -- Vim-Polyglot for better language-specific code processing
+  -- Vim-Polyglot for better language-specific code processing → crashing on html with jquery
   use({ 'sheerun/vim-polyglot' })
+
+  -- Vim-go
+  -- use({ 'fatih/vim-go' })
 
   -- Coq completion
   use("ms-jpq/coq_nvim")
   use("ms-jpq/coq.artifacts")
   use("ms-jpq/coq.thirdparty")
-
   for _, plugin in ipairs(vim.g.kyoto_extra_plugins) do
     use(plugin)
   end
