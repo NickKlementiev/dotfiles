@@ -18,7 +18,6 @@ require("options")
 require("plugins.which-key-config")
 -- extra plugins(with shorter configs)
 require("plugins.misc")
--- require("plugins")
 -- source our mappings last(may change)
 vim.cmd("source ~/.config/nvim/viml/maps.vim")
 -- auto-commands

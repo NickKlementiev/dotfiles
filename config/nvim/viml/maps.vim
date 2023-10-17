@@ -3,17 +3,17 @@ inoremap <silent><C-a> <C-o>0
 " Go to the ending of the line in insert mode
 inoremap <silent><C-b> <C-o>$
 " Paste from the system clipboard(in normal mode)
-nnoremap <silent><leader>y "*y
+nnoremap <silent><leader>y "+y
 " Paste from the system clipboard(in visual mode)
-vnoremap <silent><leader>y "*y
+vnoremap <silent><leader>y "+y
 " Cut from the system clipboard(in normal mode)
-nnoremap <silent><leader>x "*x
+nnoremap <silent><leader>x "+x
 " Cut from the system clipboard(in visual mode)
-vnoremap <silent><leader>x "*x
+vnoremap <silent><leader>x "+x
 " Paste from the system clipboard(in normal mode)
-nnoremap <silent><leader>p "*p
+nnoremap <silent><leader>p "+p
 " Paste from the system clipboard(in visual mode)
-nnoremap <silent><leader>p "*p
+nnoremap <silent><leader>p "+p
 " Select everything
 nnoremap <silent><leader>a ggVG
 " Delete a buffer
@@ -186,6 +186,9 @@ nnoremap <silent><leader>bb :Gitsigns toggle_current_line_blame<CR>
 nnoremap <silent><leader>/ :Commentary<CR>
 " Toggle comment for selections
 vnoremap <silent><leader>/ :Commentary<CR>
+
+" Open file with default Desktop app
+:nnoremap gF :!xdg-open <cfile><CR>
 
 function! ToggleNvimTree()
   if exists(":NvimTreeToggle") == 0

@@ -26,7 +26,9 @@ require("packer").startup(function(use)
 
   use("glepnir/lspsaga.nvim")
   -- use("kabouzeid/nvim-lspinstall") → Broken after new lsp-config installation
-  use("williamboman/nvim-lsp-installer")
+  -- use("williamboman/nvim-lsp-installer")
+  use("williamboman/mason.nvim")
+  use("williamboman/mason-lspconfig.nvim")
 
   use({
     "nvim-treesitter/nvim-treesitter",
@@ -53,6 +55,7 @@ require("packer").startup(function(use)
       require("plugins.telescope-config")
     end,
     requires = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } },
+    tag = '0.1.1',
   })
 
   use({
@@ -156,6 +159,17 @@ require("packer").startup(function(use)
   use("ms-jpq/coq_nvim")
   use("ms-jpq/coq.artifacts")
   use("ms-jpq/coq.thirdparty")
+
+  -- Vim-Notes
+  use("xolox/vim-misc")
+  use("xolox/vim-notes")
+
+  -- install without yarn or npm
+  use({
+      "iamcco/markdown-preview.nvim",
+      run = function() vim.fn["mkdp#util#install"]() end,
+    })
+
   for _, plugin in ipairs(vim.g.kyoto_extra_plugins) do
     use(plugin)
   end

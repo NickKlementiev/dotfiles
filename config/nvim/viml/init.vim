@@ -46,7 +46,7 @@ set nowritebackup
 " set cmdheight=2
 
 " Setting GUI Font
-set guifont=DejaVuSansMono\ Nerd\ Font\ Mono,DejaVu\ Sans\ Mono:h13
+set guifont=DejaVuSansM\ Nerd\ Font\ Mono,DejaVu\ Sans\ M\ Nerd\ Font\ Mono:h13
 "set guifont=DejaVu\ Sans\ Mono:h13
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
