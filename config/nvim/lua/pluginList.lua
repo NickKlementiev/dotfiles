@@ -55,7 +55,7 @@ require("packer").startup(function(use)
       require("plugins.telescope-config")
     end,
     requires = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } },
-    tag = '0.1.1',
+    tag = '0.1.4',
   })
 
   use({
