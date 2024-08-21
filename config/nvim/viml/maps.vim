@@ -176,7 +176,7 @@ nnoremap <silent> [e <cmd>lua require'lspsaga.diagnostic'.lsp_jump_diagnostic_pr
 
 " Jump to definition
 nnoremap <silent> gD <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <silent><leader>h :TroubleToggle<CR>
+nnoremap <silent><leader>h :Trouble diagnostics toggle<CR>
 " Show symbols outline
 nnoremap <silent><leader>so :SymbolsOutline<CR>
 " Show blame for line

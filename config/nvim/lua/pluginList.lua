@@ -71,7 +71,8 @@ require("packer").startup(function(use)
 
   use({
     "folke/trouble.nvim",
-    cmd = "TroubleToggle",
+    branch = "main",
+    cmd = "Trouble",
     config = function()
       require("trouble").setup()
     end,
