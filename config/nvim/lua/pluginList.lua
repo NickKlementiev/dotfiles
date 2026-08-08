@@ -37,6 +37,28 @@ require("packer").startup(function(use)
   })
 
   use("neovim/nvim-lspconfig")
+  -- plugin used for go auto-formatting on save
+  use({
+    "jose-elias-alvarez/null-ls.nvim",
+    config = function()
+        require("null-ls")
+    end,
+    requires = { "nvim-lua/plenary.nvim" },
+    ft = "go"
+  })
+
+  -- plugin used for go debugging
+  use("mfussenegger/nvim-dap")
+  use({
+      "leoluz/nvim-dap-go",
+      ft = "go",
+      dependencies = "mfussenegger/nvim-dap",
+      config = function(_, opts)
+        require("dap-go").setup(opts)
+      end,
+    })
+  -- use("dreamsofcode-io/nvim-dap-go")
+
   use("folke/tokyonight.nvim")
 
   use({
@@ -55,7 +77,7 @@ require("packer").startup(function(use)
       require("plugins.telescope-config")
     end,
     requires = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } },
-    tag = '0.1.4',
+    tag = '0.1.8',
   })
 
   use({
@@ -117,7 +139,12 @@ require("packer").startup(function(use)
     opt = true,
   })
 
-  use("gelguy/wilder.nvim")
+  use("roxma/nvim-yarp")
+  use("roxma/vim-hug-neovim-rpc")
+
+  use{"gelguy/wilder.nvim", config = function ()
+
+  end,}
   use({ "maxmellon/vim-jsx-pretty", opt = true })
 
   use({
@@ -153,9 +180,6 @@ require("packer").startup(function(use)
   -- Vim-Polyglot for better language-specific code processing → crashing on html with jquery
   use({ 'sheerun/vim-polyglot' })
 
-  -- Vim-go
-  -- use({ 'fatih/vim-go' })
-
   -- Coq completion
   use("ms-jpq/coq_nvim")
   use("ms-jpq/coq.artifacts")
@@ -171,7 +195,8 @@ require("packer").startup(function(use)
       run = function() vim.fn["mkdp#util#install"]() end,
     })
 
-  for _, plugin in ipairs(vim.g.kyoto_extra_plugins) do
-    use(plugin)
-  end
+
+  -- for _, plugin in ipairs(vim.g.kyoto_extra_plugins) do
+  --   use(plugin)
+  -- end
 end)

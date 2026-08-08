@@ -66,7 +66,6 @@ g.coq_settings = {
   },
 }
 
-
 -- uncomment this out if you are experiencing issues with nvim-tree.lua
 -- g.nvim_tree_git_hl = 0
 -- g.nvim_tree_gitignore = 0

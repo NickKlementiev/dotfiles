@@ -190,6 +190,17 @@ vnoremap <silent><leader>/ :Commentary<CR>
 " Open file with default Desktop app
 :nnoremap gF :!xdg-open <cfile><CR>
 
+function! GoDebugSidebar()
+    silent! lua require("dap.ui.widgets").sidebar(require("dap.ui.widgets").scopes).open()
+endfunction
+
+nnoremap <silent><leader>db <cmd>DapToggleBreakpoint<CR>
+nnoremap <silent><leader>dus :call GoDebugSidebar()<CR>
+nnoremap <silent><leader>dgt <cmd>lua require('dap-go').debug_test()<CR>
+nnoremap <silent><leader>dgl <cmd>lua require('dap-go').debug_last()<CR>
+
+nnoremap <silent><leader>tb <cmd>lua require('bob').bobSearch()<CR>
+
 function! ToggleNvimTree()
   if exists(":NvimTreeToggle") == 0
     " lazy load nvim-tree

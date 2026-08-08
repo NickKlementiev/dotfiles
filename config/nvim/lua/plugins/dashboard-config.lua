@@ -51,25 +51,25 @@ local nvim_header = {
 
 local dashboard_custom_section = {
   {
-    icon = '  ',
+    icon = '🗂 ',
     desc = "Find File                  ",
     shortcut = 'SPC f f',
     action = "Telescope find_files",
   },
   {
-    icon = '  ',
+    icon = '🕒 ',
     desc = "Recents                    ",
     shortcut = 'SPC f o',
     action = "Telescope oldfiles",
   },
   {
-    icon = '洛 ',
+    icon = '➕ ',
     desc = "New Buffer                 ",
     shortcut = 'SPC g g',
     action = "enew",
   },
   {
-    icon = '  ',
+    icon = '🛠 ',
     desc = "Edit Configuration         ",
     shortcut = 'SPC d c',
     action = "e ~/.config/nvim/lua/kyotorc.lua",
