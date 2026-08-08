@@ -34,12 +34,14 @@ require("packer").startup(function(use)
     "nvim-treesitter/nvim-treesitter",
     event = "BufRead",
     run = ":TSUpdate",
+    -- the 0.10.0 treesitter tag is required for telescope to work
+    tag = "v0.10.0"
   })
 
   use("neovim/nvim-lspconfig")
   -- plugin used for go auto-formatting on save
   use({
-    "jose-elias-alvarez/null-ls.nvim",
+    "nvimtools/none-ls.nvim",
     config = function()
         require("null-ls")
     end,
@@ -89,7 +91,13 @@ require("packer").startup(function(use)
     requires = "kyazdani42/nvim-web-devicons",
   })
 
-  use("jiangmiao/auto-pairs")
+  use({
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    config = function()
+      require("nvim-autopairs").setup {}
+    end
+  })
 
   use({
     "folke/trouble.nvim",

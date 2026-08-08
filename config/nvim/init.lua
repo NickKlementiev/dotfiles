@@ -27,4 +27,4 @@ vim.cmd("source ~/.config/nvim/viml/autocmd.vim")
 -- source init.vim
 vim.cmd("source ~/.config/nvim/viml/init.vim")
 -- user configurations
-require("kyotorc")
+-- require("kyotorc")
