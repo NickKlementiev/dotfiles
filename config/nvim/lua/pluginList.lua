@@ -17,8 +17,8 @@ require("packer").startup(function(use)
   -- use("onsails/lspkind-nvim")
 
   use({
-    "kyazdani42/nvim-tree.lua",
-    requires = "kyazdani42/nvim-web-devicons",
+    "nvim-tree/nvim-tree.lua",
+    requires = "nvim-tree/nvim-web-devicons",
     config = function()
       require'nvim-tree'.setup({})
     end,
@@ -64,12 +64,12 @@ require("packer").startup(function(use)
   use("folke/tokyonight.nvim")
 
   use({
-    "hoob3rt/lualine.nvim",
+    "nvim-lualine/lualine.nvim",
     event = "BufWinEnter",
     config = function()
       require("plugins.statusline")
     end,
-    requires = { "kyazdani42/nvim-web-devicons", opt = true },
+    requires = { "nvim-tree/nvim-web-devicons", opt = true },
   })
 
   use({
@@ -88,14 +88,15 @@ require("packer").startup(function(use)
     config = function()
       require("plugins.top-bufferline")
     end,
-    requires = "kyazdani42/nvim-web-devicons",
+    requires = "nvim-tree/nvim-web-devicons",
   })
 
   use({
     "windwp/nvim-autopairs",
     event = "InsertEnter",
     config = function()
-      require("nvim-autopairs").setup {}
+      -- require("nvim-autopairs").setup {}
+      require("plugins.nvim-autopairs")
     end
   })
 
@@ -106,7 +107,7 @@ require("packer").startup(function(use)
     config = function()
       require("trouble").setup()
     end,
-    requires = "kyazdani42/nvim-web-devicons",
+    requires = "nvim-tree/nvim-web-devicons",
   })
 
   -- use({

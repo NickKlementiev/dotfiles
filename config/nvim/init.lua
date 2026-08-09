@@ -7,17 +7,11 @@ vim.opt.rnu = true
 
 require("globals")
 
--- Dashboard configuration
-require("plugins.dashboard-config")
-
 -- Language server configuration
 require("lsp-config")
 -- general configurations
 require("options")
--- configuration to help you remember keybindings
-require("plugins.which-key-config")
--- extra plugins(with shorter configs)
-require("plugins.misc")
+
 -- source our mappings last(may change)
 vim.cmd("source ~/.config/nvim/viml/maps.vim")
 -- auto-commands
